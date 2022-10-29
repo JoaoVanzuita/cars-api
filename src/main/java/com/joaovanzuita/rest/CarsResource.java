@@ -8,12 +8,11 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
-@Path("/cars")
-@Produces(MediaType.APPLICATION_JSON+"charset=UTF-8")
-@Consumes(MediaType.APPLICATION_JSON+"charset=UTF-8")
+@Path("/car")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class CarsResource {
     private final CarService carService = CarService.getInstace();
-
     @GET
     public List<Car> getCars(){
         return carService.getCars();
@@ -24,12 +23,12 @@ public class CarsResource {
         return carService.getCar(id);
     }
     @GET
-    @Path("{type}")
+    @Path("type/{type}")
     public List<Car> getByType(@PathParam("type") String type){
         return carService.findByType(type);
     }
     @GET
-    @Path("{name}")
+    @Path("name/{name}")
     public List<Car> getByName(@PathParam("name") String name){
         return carService.findByName(name);
     }

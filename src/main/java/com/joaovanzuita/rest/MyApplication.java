@@ -8,15 +8,6 @@ import java.util.Set;
 
 public class MyApplication extends Application {
 
-//	@Override
-//	public Set<Object> getSingletons() {
-//
-//		Set<Object> singletons = new HashSet<>();
-//		singletons.add(new JettisonFeature());
-//
-//		return singletons;
-//	}
-	
 	@Override
 	public Map<String, Object> getProperties() {
 		

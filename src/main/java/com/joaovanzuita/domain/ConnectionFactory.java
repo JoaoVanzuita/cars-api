@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 public class ConnectionFactory {
 
     private static final String URL = "jdbc:postgresql://localhost/cars_api";
-    private static final String USER = "carsapi_user";
+    private static final String USER = "cars_api_user";
     private static final String PASSWORD = "cars_api";
     private static final int MAX_CON = 10;
 
