@@ -1,14 +1,27 @@
 package com.joaovanzuita.domain;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
+@Entity
+@Table(name = "cars")
 public class Car implements Serializable{
 	private static final long serialVersionUID = 1L;
+
+	@Id
+	@Column(name="id_car", unique = true, nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idCar;
+
 	private String name;
 	private String description;
+
+	@Column(name = "url_video")
 	private String urlVideo;
+
+	@Column(name = "url_image")
 	private String urlImage;
+
 	private String latitude;
 	private String longitude;
 	private String type;
