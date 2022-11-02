@@ -1,5 +1,7 @@
 package com.joaovanzuita.domain;
 
+import org.springframework.stereotype.Component;
+
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,6 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class CarDAO {
     private static final String sqlCreate = "INSERT INTO cars(name,description,url_image,url_video,latitude,longitude,type) VALUES(?,?,?,?,?,?,?);";
     private static final String sqlDelete = "DELETE FROM cars WHERE id_car = ?;";
@@ -16,18 +19,10 @@ public class CarDAO {
     private static final String sqlGetByType = "SELECT * FROM cars WHERE type LIKE ? ;";
     private static final String sqlGetById = "SELECT * FROM cars WHERE id_car = ?;";
     private static final String sqlGetAll = "SELECT * FROM cars;";
-    private static CarDAO instance;
-	
-	private CarDAO() {
+
+	public CarDAO() {
 	}
-	
-	public static CarDAO getInstace() {	
-		if(instance == null) {
-			instance = new CarDAO();
-		}
-		return instance;
-	}
-	
+
 	public Car getCarById(Long id) throws SQLException{
 		Connection connection = null;
 		PreparedStatement statement = null;

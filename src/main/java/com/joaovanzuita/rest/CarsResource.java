@@ -1,8 +1,11 @@
 package com.joaovanzuita.rest;
 
+
 import com.joaovanzuita.domain.Car;
 import com.joaovanzuita.domain.CarService;
 import com.joaovanzuita.domain.Response;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -11,8 +14,12 @@ import java.util.List;
 @Path("/car")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+@Component
 public class CarsResource {
-    private final CarService carService = CarService.getInstace();
+
+    @Autowired
+    private CarService carService;
+
     @GET
     public List<Car> getCars(){
         return carService.getCars();

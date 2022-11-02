@@ -1,13 +1,18 @@
 package com.joaovanzuita.domain;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class CarService {
 	
 	private static CarService instance;
-	
-	private CarDAO carDAO = CarDAO.getInstace();
+
+	@Autowired
+	private CarDAO carDAO;
 	
 	public static CarService getInstace() {	
 		if(instance == null) {
